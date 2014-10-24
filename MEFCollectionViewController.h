@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MEFCollectionViewController.h
 //  UW_HW4_mefife
 //
 //  Created by Matthew Fife on 10/22/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MEFCollectionViewController : UICollectionViewController <UICollectionViewDataSource>
 
 @end
-

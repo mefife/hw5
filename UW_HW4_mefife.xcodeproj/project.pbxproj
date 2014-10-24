@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		C408926B19F8820E003A6A70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C408926A19F8820E003A6A70 /* main.m */; };
 		C408926E19F8820E003A6A70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C408926D19F8820E003A6A70 /* AppDelegate.m */; };
-		C408927119F8820E003A6A70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408927019F8820E003A6A70 /* ViewController.m */; };
-		C408927419F8820F003A6A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408927219F8820F003A6A70 /* Main.storyboard */; };
 		C408927619F8820F003A6A70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C408927519F8820F003A6A70 /* Images.xcassets */; };
 		C408927919F8820F003A6A70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C408927719F8820F003A6A70 /* LaunchScreen.xib */; };
 		C408928519F8820F003A6A70 /* UW_HW4_mefifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C408928419F8820F003A6A70 /* UW_HW4_mefifeTests.m */; };
+		C408929019F887F2003A6A70 /* MEFCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408928F19F887F2003A6A70 /* MEFCollectionViewController.m */; };
+		C41AF7C119F9FC890011AD85 /* MEFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41AF7C019F9FC890011AD85 /* MEFTableViewController.m */; };
+		C41AF7C519FA02CD0011AD85 /* MEFBirthday.m in Sources */ = {isa = PBXBuildFile; fileRef = C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,17 @@
 		C408926A19F8820E003A6A70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C408926C19F8820E003A6A70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C408926D19F8820E003A6A70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C408926F19F8820E003A6A70 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C408927019F8820E003A6A70 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C408927319F8820F003A6A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C408927519F8820F003A6A70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C408927819F8820F003A6A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C408927E19F8820F003A6A70 /* UW_HW4_mefifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UW_HW4_mefifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C408928319F8820F003A6A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C408928419F8820F003A6A70 /* UW_HW4_mefifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UW_HW4_mefifeTests.m; sourceTree = "<group>"; };
+		C408928E19F887F2003A6A70 /* MEFCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFCollectionViewController.h; sourceTree = "<group>"; };
+		C408928F19F887F2003A6A70 /* MEFCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFCollectionViewController.m; sourceTree = "<group>"; };
+		C41AF7BF19F9FC890011AD85 /* MEFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFTableViewController.h; sourceTree = "<group>"; };
+		C41AF7C019F9FC890011AD85 /* MEFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFTableViewController.m; sourceTree = "<group>"; };
+		C41AF7C319FA02CD0011AD85 /* MEFBirthday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFBirthday.h; sourceTree = "<group>"; };
+		C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFBirthday.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,9 @@
 		C408925C19F8820E003A6A70 = {
 			isa = PBXGroup;
 			children = (
+				C41AF7C619FA02D20011AD85 /* Model */,
+				C408929119F887FF003A6A70 /* CollectionViewController */,
+				C41AF7C219F9FC8D0011AD85 /* TableViewController */,
 				C408926719F8820E003A6A70 /* UW_HW4_mefife */,
 				C408928119F8820F003A6A70 /* UW_HW4_mefifeTests */,
 				C408926619F8820E003A6A70 /* Products */,
@@ -83,9 +90,6 @@
 			children = (
 				C408926C19F8820E003A6A70 /* AppDelegate.h */,
 				C408926D19F8820E003A6A70 /* AppDelegate.m */,
-				C408926F19F8820E003A6A70 /* ViewController.h */,
-				C408927019F8820E003A6A70 /* ViewController.m */,
-				C408927219F8820F003A6A70 /* Main.storyboard */,
 				C408927519F8820F003A6A70 /* Images.xcassets */,
 				C408927719F8820F003A6A70 /* LaunchScreen.xib */,
 				C408926819F8820E003A6A70 /* Supporting Files */,
@@ -117,6 +121,34 @@
 				C408928319F8820F003A6A70 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C408929119F887FF003A6A70 /* CollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C408928E19F887F2003A6A70 /* MEFCollectionViewController.h */,
+				C408928F19F887F2003A6A70 /* MEFCollectionViewController.m */,
+			);
+			name = CollectionViewController;
+			sourceTree = "<group>";
+		};
+		C41AF7C219F9FC8D0011AD85 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C41AF7BF19F9FC890011AD85 /* MEFTableViewController.h */,
+				C41AF7C019F9FC890011AD85 /* MEFTableViewController.m */,
+			);
+			name = TableViewController;
+			path = UW_HW4_mefife;
+			sourceTree = "<group>";
+		};
+		C41AF7C619FA02D20011AD85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C41AF7C319FA02CD0011AD85 /* MEFBirthday.h */,
+				C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C408927419F8820F003A6A70 /* Main.storyboard in Resources */,
 				C408927919F8820F003A6A70 /* LaunchScreen.xib in Resources */,
 				C408927619F8820F003A6A70 /* Images.xcassets in Resources */,
 			);
@@ -219,8 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C408927119F8820E003A6A70 /* ViewController.m in Sources */,
+				C408929019F887F2003A6A70 /* MEFCollectionViewController.m in Sources */,
 				C408926E19F8820E003A6A70 /* AppDelegate.m in Sources */,
+				C41AF7C519FA02CD0011AD85 /* MEFBirthday.m in Sources */,
+				C41AF7C119F9FC890011AD85 /* MEFTableViewController.m in Sources */,
 				C408926B19F8820E003A6A70 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +277,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C408927219F8820F003A6A70 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C408927319F8820F003A6A70 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C408927719F8820F003A6A70 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +439,7 @@
 				C408928A19F8820F003A6A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C408928B19F8820F003A6A70 /* Build configuration list for PBXNativeTarget "UW_HW4_mefifeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +448,7 @@
 				C408928D19F8820F003A6A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

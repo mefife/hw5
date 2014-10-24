@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MEFTableViewController.h"
+#import "MEFCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    MEFTableViewController *MEFTableView = [[MEFTableViewController alloc] init];
+    UICollectionViewController *MEFCollectionView = [[UICollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    // set tags to figure out which view controller was selected
+    
+    
+    //ColorsViewController *colorsViewController = [[ColorsViewController alloc] init];
+    //DataViewController *dataViewController = [[DataViewController alloc] init];
+    [tabBarController setViewControllers:@[MEFTableView, MEFCollectionView] animated:YES];
+    MEFTableView.tabBarItem.title = @"Birthdays";
+    MEFCollectionView.tabBarItem.title = @"Birthdays";
+    self.window.rootViewController = tabBarController;
+    tabBarController.delegate = self;
+    
+    //NSLog(@"Application changed");
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
