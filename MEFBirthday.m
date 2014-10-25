@@ -13,7 +13,7 @@
 +(MEFBirthday *) createBirthday; {
     MEFBirthday * person = [[MEFBirthday alloc] init];
     person.Name = @"Bill Jones";
-    
+    person.Bday =[NSDate date];
     return person;
 }
 

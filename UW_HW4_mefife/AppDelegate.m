@@ -11,7 +11,8 @@
 #import "MEFCollectionViewController.h"
 
 @interface AppDelegate ()
-
+@property MEFTableViewController * MEFTableView;
+@property MEFCollectionViewController * MEFCollectionView;
 @end
 
 @implementation AppDelegate
@@ -21,17 +22,21 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.MainBirthdayList = [NSMutableArray array];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    MEFTableViewController *MEFTableView = [[MEFTableViewController alloc] init];
-    UICollectionViewController *MEFCollectionView = [[UICollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    self.MEFTableView = [[MEFTableViewController alloc] init];
+    self.MEFCollectionView = [[MEFCollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
     // set tags to figure out which view controller was selected
+    UINavigationController *navControllerTable = [[UINavigationController alloc] initWithRootViewController:self.MEFTableView];
+    UINavigationController *navControllerCollection = [[UINavigationController alloc] initWithRootViewController:self.MEFCollectionView];
     
     
     //ColorsViewController *colorsViewController = [[ColorsViewController alloc] init];
     //DataViewController *dataViewController = [[DataViewController alloc] init];
-    [tabBarController setViewControllers:@[MEFTableView, MEFCollectionView] animated:YES];
-    MEFTableView.tabBarItem.title = @"Birthdays";
-    MEFCollectionView.tabBarItem.title = @"Birthdays";
+    [tabBarController setViewControllers:@[navControllerTable, navControllerCollection] animated:YES];
+    navControllerTable.tabBarItem.title = @"Birthdays";
+    navControllerCollection.tabBarItem.title = @"Birthdays";
+    //MEFCollectionView.tabBarItem.title = @"Birthdays";
     self.window.rootViewController = tabBarController;
     tabBarController.delegate = self;
     
@@ -39,6 +44,23 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+// Delegate Control for Tab Bar Selection
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if (tabBarController.selectedIndex == 0) {
+        NSLog(@"In Table View");
+        
+    }else if (tabBarController.selectedIndex == 1) {
+        NSLog(@"In Collection View");
+        self.MEFCollectionView.BirthdayList = self.MEFTableView.BirthdayList;
+        NSLog(@"%lul",(unsigned long)self.MEFCollectionView.BirthdayList.count);
+        //[self.MEFCollectionView.view reloadInputViews];
+        //[self.MEFCollectionView.view setNeedsDisplay];
+    }
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -11,7 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UITabBarDelegate> 
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic,strong) NSMutableArray * MainBirthdayList;
 
 @end
 

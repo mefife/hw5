@@ -7,28 +7,46 @@
 //
 
 #import "MEFCollectionViewController.h"
+#import "MEFBirthday.h"
 
-@interface MEFCollectionViewController ()
+
+static NSString * const CellIdentifer = @"Cell";
+
+
+@interface MEFCollectionViewController () <UICollectionViewDelegateFlowLayout>
+
 
 @end
 
 @implementation MEFCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
 
 -(id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 {
     if (!(self = [super initWithCollectionViewLayout:layout])) {
         return nil;
     }
+    self.BirthdayList = [NSMutableArray array];
     return self;
 }
 
     
 -(void)viewDidLoad;
 {
-        
-    }
+    [super viewDidLoad];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Birthdays";
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifer];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated;
+{
+    //NSLog(@"view will appear");
+    [self.collectionView reloadInputViews];
+    [self.collectionView reloadData];
+
+}
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -38,16 +56,59 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return self.BirthdayList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifer forIndexPath:indexPath];
+    NSAssert(cell != nil, @"Expected a Cell");
+    // Get the person Object from MEFBirthday
+    MEFBirthday * personObject = self.BirthdayList[indexPath.item];
     
+    NSLog(@" Here are the items: %@",self.BirthdayList[indexPath.item]);
+    
+    
+    cell.backgroundColor = [UIColor lightGrayColor];
+    // Set up two labels to hold the date and name
+    CGRect nameLocation = cell.contentView.bounds;
+    nameLocation.origin.x = cell.contentView.bounds.origin.x + 60.0f;
+    nameLocation.origin.y  = cell.contentView.bounds.origin.y - 25.0f;
+    
+    
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:nameLocation];
+    nameLabel.text = personObject.Name;
+    [cell.contentView addSubview:nameLabel];
+    
+    /////////////////
+    
+    CGRect dateLocation = cell.contentView.bounds;
+    dateLocation.origin.x   = cell.contentView.bounds.origin.x + 50.0f;
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:dateLocation];
+    dateLabel.text = [NSDateFormatter localizedStringFromDate:personObject.Bday dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
+    [cell.contentView addSubview:dateLabel];
     // Configure the cell
-    
+    [cell.contentView.layer setBorderColor:[UIColor grayColor].CGColor];
+    [cell.contentView.layer setBorderWidth:1.0f];
+    //NSLog(@"Creating Cells");
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+
+#define GAP (0.5f)
+
+-(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    CGFloat edgeLength = collectionView.frame.size.width/2.0f - GAP;
+    return (CGSize){.width = edgeLength, .height = 80.0f};
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return GAP;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return GAP;
+}
 @end

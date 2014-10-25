@@ -15,6 +15,8 @@
 		C408929019F887F2003A6A70 /* MEFCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C408928F19F887F2003A6A70 /* MEFCollectionViewController.m */; };
 		C41AF7C119F9FC890011AD85 /* MEFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41AF7C019F9FC890011AD85 /* MEFTableViewController.m */; };
 		C41AF7C519FA02CD0011AD85 /* MEFBirthday.m in Sources */ = {isa = PBXBuildFile; fileRef = C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */; };
+		C46EF43719FC16DC009F2E35 /* MEFSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46EF43519FC16DC009F2E35 /* MEFSelectViewController.m */; };
+		C46EF43819FC16DC009F2E35 /* MEFSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46EF43619FC16DC009F2E35 /* MEFSelectViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,9 @@
 		C41AF7C019F9FC890011AD85 /* MEFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFTableViewController.m; sourceTree = "<group>"; };
 		C41AF7C319FA02CD0011AD85 /* MEFBirthday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFBirthday.h; sourceTree = "<group>"; };
 		C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFBirthday.m; sourceTree = "<group>"; };
+		C46EF43419FC16DC009F2E35 /* MEFSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFSelectViewController.h; sourceTree = "<group>"; };
+		C46EF43519FC16DC009F2E35 /* MEFSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFSelectViewController.m; sourceTree = "<group>"; };
+		C46EF43619FC16DC009F2E35 /* MEFSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEFSelectViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +72,11 @@
 		C408925C19F8820E003A6A70 = {
 			isa = PBXGroup;
 			children = (
+				C46EF43919FC16EF009F2E35 /* MEFSelectView */,
 				C41AF7C619FA02D20011AD85 /* Model */,
 				C408929119F887FF003A6A70 /* CollectionViewController */,
 				C41AF7C219F9FC8D0011AD85 /* TableViewController */,
-				C408926719F8820E003A6A70 /* UW_HW4_mefife */,
+				C408926719F8820E003A6A70 /* App Delegate */,
 				C408928119F8820F003A6A70 /* UW_HW4_mefifeTests */,
 				C408926619F8820E003A6A70 /* Products */,
 			);
@@ -85,7 +91,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C408926719F8820E003A6A70 /* UW_HW4_mefife */ = {
+		C408926719F8820E003A6A70 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				C408926C19F8820E003A6A70 /* AppDelegate.h */,
@@ -94,6 +100,7 @@
 				C408927719F8820F003A6A70 /* LaunchScreen.xib */,
 				C408926819F8820E003A6A70 /* Supporting Files */,
 			);
+			name = "App Delegate";
 			path = UW_HW4_mefife;
 			sourceTree = "<group>";
 		};
@@ -149,6 +156,17 @@
 				C41AF7C419FA02CD0011AD85 /* MEFBirthday.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C46EF43919FC16EF009F2E35 /* MEFSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				C46EF43419FC16DC009F2E35 /* MEFSelectViewController.h */,
+				C46EF43519FC16DC009F2E35 /* MEFSelectViewController.m */,
+				C46EF43619FC16DC009F2E35 /* MEFSelectViewController.xib */,
+			);
+			name = MEFSelectView;
+			path = UW_HW4_mefife;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C408927919F8820F003A6A70 /* LaunchScreen.xib in Resources */,
+				C46EF43819FC16DC009F2E35 /* MEFSelectViewController.xib in Resources */,
 				C408927619F8820F003A6A70 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +274,7 @@
 				C41AF7C519FA02CD0011AD85 /* MEFBirthday.m in Sources */,
 				C41AF7C119F9FC890011AD85 /* MEFTableViewController.m in Sources */,
 				C408926B19F8820E003A6A70 /* main.m in Sources */,
+				C46EF43719FC16DC009F2E35 /* MEFSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

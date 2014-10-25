@@ -8,12 +8,16 @@
 
 #import "MEFTableViewController.h"
 #import "MEFBirthday.h"
+#import "MEFSelectViewController.h"
 
 @interface MEFTableViewController ()
-@property (nonatomic,strong) NSMutableArray * BirthdayList;
+@property MEFSelectViewController *selectViewController;
+@property UINavigationController * navControllerSelect;
 @end
 
 @implementation MEFTableViewController
+
+
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"In Here");
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBirthday:)];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -36,6 +40,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"Birthdays";
+    self.selectViewController = [[MEFSelectViewController alloc] init];
+    self.navControllerSelect = [[UINavigationController alloc] initWithRootViewController:self.selectViewController];
+    
 }
 
 
@@ -43,6 +51,10 @@
     
     [self.BirthdayList addObject:[MEFBirthday createBirthday]];
     [self.tableView insertRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:(self.BirthdayList.count - 1) inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[self.navigationController pushViewController:self.selectViewController animated:YES];
+    [self.navigationController presentViewController:self.navControllerSelect animated:YES completion:nil];
+    //UINavigationController *navBar = [[UINavigationController alloc] initWithRootViewController:self.selectViewController];
+    //self.navigationController prese
 }
 
 #pragma mark - Table view data source
@@ -69,9 +81,21 @@
     }
     
     MEFBirthday * personSelected = self.BirthdayList[indexPath.row];
-    NSString * dataToAdd = personSelected.Name;
     
-    cell.textLabel.text = dataToAdd;
+    NSString * personName = personSelected.Name;
+    NSDate *personBday = personSelected.Bday;
+    
+    // Add label on right for Date
+    UILabel * dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(220, 0, 370, 40)];
+    dateLabel.text = [NSDateFormatter localizedStringFromDate:personBday dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
+    dateLabel.backgroundColor = [UIColor clearColor];
+    dateLabel.font = [UIFont fontWithName:@"Helvetica" size:18.0f];
+    [cell.contentView addSubview:dateLabel];
+    
+    cell.textLabel.text = personName;
+   
+    
+    //cell.textLabel.text = [NSDateFormatter localizedStringFromDate:personBday dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
     
     return cell;
 }
@@ -88,12 +112,9 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    NSParameterAssert(editingStyle == UITableViewCellEditingStyleDelete);
+    [self.BirthdayList removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

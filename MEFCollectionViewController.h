@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MEFCollectionViewController : UICollectionViewController <UICollectionViewDataSource>
+@property (nonatomic,strong) NSMutableArray * BirthdayList;
 
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MEFTableViewController : UITableViewController
+@property (nonatomic,strong) NSMutableArray * BirthdayList;
+
 
 @end
