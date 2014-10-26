@@ -51,14 +51,21 @@
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     if (tabBarController.selectedIndex == 0) {
-        NSLog(@"In Table View");
+        //NSLog(@"In Table View");
         
     }else if (tabBarController.selectedIndex == 1) {
-        NSLog(@"In Collection View");
+        //NSLog(@"In Collection View");
+        
+        
+        for (int i=0; i <[self.MEFCollectionView.collectionView.subviews count]; i++) {
+            [[self.MEFCollectionView.collectionView.subviews objectAtIndex:i] removeFromSuperview];
+        }
+        
         self.MEFCollectionView.BirthdayList = self.MEFTableView.BirthdayList;
-        NSLog(@"%lul",(unsigned long)self.MEFCollectionView.BirthdayList.count);
-        //[self.MEFCollectionView.view reloadInputViews];
-        //[self.MEFCollectionView.view setNeedsDisplay];
+        [self.MEFCollectionView.collectionView reloadInputViews];
+        [self.MEFCollectionView.collectionView reloadData];
+        //NSLog(@"%lul",(unsigned long)self.MEFCollectionView.BirthdayList.count);
+
     }
 
 }

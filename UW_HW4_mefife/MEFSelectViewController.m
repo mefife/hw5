@@ -24,23 +24,21 @@
 
 -(void)closeView:(id)sender;
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //[self.view removeFromSuperview];
+    //self.dateField.date = self.dateChoosen;
+    //self.nameField.text = self.nameWritten;
+    [self.delegate SelectionViewClosing];
+    [self dismissViewControllerAnimated:YES completion:^{
+    
+        NSLog(@"Closed view controller");
+    
+    }];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.nameField.text = @"";
+    self.dateField.date = [NSDate date];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

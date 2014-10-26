@@ -49,6 +49,7 @@
 		C46EF43419FC16DC009F2E35 /* MEFSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFSelectViewController.h; sourceTree = "<group>"; };
 		C46EF43519FC16DC009F2E35 /* MEFSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFSelectViewController.m; sourceTree = "<group>"; };
 		C46EF43619FC16DC009F2E35 /* MEFSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEFSelectViewController.xib; sourceTree = "<group>"; };
+		C46EF43A19FC77A7009F2E35 /* MEFSelectViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFSelectViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +164,7 @@
 			children = (
 				C46EF43419FC16DC009F2E35 /* MEFSelectViewController.h */,
 				C46EF43519FC16DC009F2E35 /* MEFSelectViewController.m */,
+				C46EF43A19FC77A7009F2E35 /* MEFSelectViewControllerDelegate.h */,
 				C46EF43619FC16DC009F2E35 /* MEFSelectViewController.xib */,
 			);
 			name = MEFSelectView;

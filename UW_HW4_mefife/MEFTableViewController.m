@@ -9,15 +9,15 @@
 #import "MEFTableViewController.h"
 #import "MEFBirthday.h"
 #import "MEFSelectViewController.h"
+#import "MEFSelectViewControllerDelegate.h"
 
-@interface MEFTableViewController ()
+@interface MEFTableViewController () <MEFSelectViewControllerDelegate>
+
 @property MEFSelectViewController *selectViewController;
 @property UINavigationController * navControllerSelect;
 @end
 
 @implementation MEFTableViewController
-
-
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBirthday:)];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -42,19 +42,41 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"Birthdays";
     self.selectViewController = [[MEFSelectViewController alloc] init];
+    self.selectViewController.delegate = self;
     self.navControllerSelect = [[UINavigationController alloc] initWithRootViewController:self.selectViewController];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+
 }
 
 
 -(void)addBirthday:(id)sender; {
     
-    [self.BirthdayList addObject:[MEFBirthday createBirthday]];
+    //NSLog(@"Here is the date I got: %@",self.selectViewController.dateField.date);
+    
+    [self.navigationController presentViewController:self.navControllerSelect animated:YES completion:^{
+    
+        NSLog(@"Opened the view");
+    
+    }];
+    
+    //[self.BirthdayList addObject:[MEFBirthday createBirthday]];
+    //[self.tableView insertRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:(self.BirthdayList.count - 1) inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
+-(void) SelectionViewClosing;
+{
+    //NSLog(@"Getting Called");
+    MEFBirthday *BirthdayInfoAdd = [MEFBirthday createBirthday];
+    BirthdayInfoAdd.Name = self.selectViewController.nameField.text;
+    BirthdayInfoAdd.Bday = self.selectViewController.dateField.date;
+    
+    [self.BirthdayList addObject:BirthdayInfoAdd];
     [self.tableView insertRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:(self.BirthdayList.count - 1) inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    //[self.navigationController pushViewController:self.selectViewController animated:YES];
-    [self.navigationController presentViewController:self.navControllerSelect animated:YES completion:nil];
-    //UINavigationController *navBar = [[UINavigationController alloc] initWithRootViewController:self.selectViewController];
-    //self.navigationController prese
 }
 
 #pragma mark - Table view data source
@@ -93,21 +115,9 @@
     [cell.contentView addSubview:dateLabel];
     
     cell.textLabel.text = personName;
-   
-    
-    //cell.textLabel.text = [NSDateFormatter localizedStringFromDate:personBday dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
     
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
 // Override to support editing the table view.
@@ -117,29 +127,5 @@
     [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

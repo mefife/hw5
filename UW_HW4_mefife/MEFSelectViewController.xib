@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MEFSelectViewController">
             <connections>
+                <outlet property="dateField" destination="YCs-4q-khc" id="7ZM-zf-cjY"/>
+                <outlet property="nameField" destination="7Rg-nU-mSA" id="GF9-3g-Rfr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,12 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YCs-4q-khc">
-                    <rect key="frame" x="0.0" y="235" width="600" height="162"/>
-                    <date key="date" timeIntervalSinceReferenceDate="435951451.912238">
-                        <!--2014-10-25 17:37:31 +0000-->
-                    </date>
-                </datePicker>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Rg-nU-mSA">
                     <rect key="frame" x="129" y="92" width="414" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -31,6 +27,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YCs-4q-khc">
+                    <rect key="frame" x="0.0" y="180" width="600" height="162"/>
+                    <date key="date" timeIntervalSinceReferenceDate="435951451.912238">
+                        <!--2014-10-25 17:37:31 +0000-->
+                    </date>
+                </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -38,7 +40,7 @@
                 <constraint firstItem="7Rg-nU-mSA" firstAttribute="leading" secondItem="nJZ-Kz-tpC" secondAttribute="trailing" constant="38" id="EwI-C0-QCT"/>
                 <constraint firstAttribute="trailing" secondItem="YCs-4q-khc" secondAttribute="trailing" id="LZN-7s-yb3"/>
                 <constraint firstItem="YCs-4q-khc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UJT-cl-AnA"/>
-                <constraint firstItem="YCs-4q-khc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="235" id="UQa-aQ-r9Z"/>
+                <constraint firstItem="YCs-4q-khc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="UQa-aQ-r9Z"/>
                 <constraint firstItem="nJZ-Kz-tpC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="UaU-Xo-1dH"/>
                 <constraint firstItem="nJZ-Kz-tpC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="Ya3-wy-UgS"/>
                 <constraint firstItem="7Rg-nU-mSA" firstAttribute="centerY" secondItem="nJZ-Kz-tpC" secondAttribute="centerY" constant="0.5" id="dGD-yz-Fab"/>
@@ -46,6 +48,7 @@
                 <constraint firstAttribute="trailing" secondItem="7Rg-nU-mSA" secondAttribute="trailing" constant="57" id="jcL-t4-kf1"/>
                 <constraint firstAttribute="centerX" secondItem="7Rg-nU-mSA" secondAttribute="centerX" constant="-36" id="u0b-1P-vDr"/>
             </constraints>
+            <point key="canvasLocation" x="27" y="64"/>
         </view>
     </objects>
 </document>

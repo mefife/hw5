@@ -42,9 +42,9 @@ static NSString * const CellIdentifer = @"Cell";
 
 -(void)viewWillAppear:(BOOL)animated;
 {
-    //NSLog(@"view will appear");
-    [self.collectionView reloadInputViews];
-    [self.collectionView reloadData];
+    for (UILabel *label in self.collectionView.subviews) {
+        [label reloadInputViews];
+    }
 
 }
 
@@ -63,14 +63,13 @@ static NSString * const CellIdentifer = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifer forIndexPath:indexPath];
     NSAssert(cell != nil, @"Expected a Cell");
     // Get the person Object from MEFBirthday
+    NSLog(@"Here is how many items the Collection is seeing: %lu", (unsigned long)self.BirthdayList.count);
     MEFBirthday * personObject = self.BirthdayList[indexPath.item];
-    
-    NSLog(@" Here are the items: %@",self.BirthdayList[indexPath.item]);
-    
     
     cell.backgroundColor = [UIColor lightGrayColor];
     // Set up two labels to hold the date and name
     CGRect nameLocation = cell.contentView.bounds;
+    nameLocation.size.width = 100.0f;
     nameLocation.origin.x = cell.contentView.bounds.origin.x + 60.0f;
     nameLocation.origin.y  = cell.contentView.bounds.origin.y - 25.0f;
     
@@ -89,12 +88,11 @@ static NSString * const CellIdentifer = @"Cell";
     // Configure the cell
     [cell.contentView.layer setBorderColor:[UIColor grayColor].CGColor];
     [cell.contentView.layer setBorderWidth:1.0f];
-    //NSLog(@"Creating Cells");
     return cell;
 }
 
 
-#define GAP (0.5f)
+#define GAP (0.25f)
 
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
